@@ -208,7 +208,8 @@ async def advantage_spoll_choker(bot, query):
         if files:
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
-        else:
+        try:
+    movielist = []        
     if not movies:
         reqst_gle = mv_rqst.replace(" ", "+")            
             btn = [[
@@ -217,8 +218,10 @@ async def advantage_spoll_choker(bot, query):
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f"https://www.google.com/search?q={reqst_gle}")                
         ]]        
             k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..? </b>\n\n✯ 𝗜𝗳 𝗶𝘁 𝗶𝘀 , 𝗪𝗲 𝗪𝗶𝗹𝗹 𝗨𝗽𝗹𝗼𝗮𝗱 𝗜𝘁⚡️\n\n<b>📯ɴʙ: Cʟɪᴄᴋ Bᴇʟᴏᴡ Rᴇᴀsᴏɴs Bᴜᴛᴛᴏɴ</b>', reply_markup=InlineKeyboardMarkup(btn))    
-            await asyncio.sleep(60)
+            await asyncio.sleep(20)
             await k.delete()
+            await msg.delete()
+            return
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
