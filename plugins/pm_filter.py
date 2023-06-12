@@ -209,7 +209,6 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-        reqst_gle = mv_rqst.replace(" ", "+")
         btn = [[
             InlineKeyboardButton('⌬ 𝗥𝗘𝗔𝗦𝗢𝗡𝗦 ⌬', callback_data='reqst11')
             ],[   
