@@ -209,19 +209,12 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            reqstr1 = query.from_user.id if query.from_user else 0
-            reqstr = await bot.get_users(reqstr1)
-            await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
-            k = await query.message.edit(script.MVE_NT_FND)
-            await asyncio.sleep(10)
-            await k.delete()
             btn = [[
             InlineKeyboardButton('⌬ 𝗥𝗘𝗔𝗦𝗢𝗡𝗦 ⌬', callback_data='reqst11')
         ]]        
             k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..? </b>\n\n✯ 𝗜𝗳 𝗶𝘁 𝗶𝘀 , 𝗪𝗲 𝗪𝗶𝗹𝗹 𝗨𝗽𝗹𝗼𝗮𝗱 𝗜𝘁⚡️\n\n<b>📯ɴʙ: Cʟɪᴄᴋ Bᴇʟᴏᴡ Rᴇᴀsᴏɴs Bᴜᴛᴛᴏɴ</b>', reply_markup=InlineKeyboardMarkup(btn))    
             await asyncio.sleep(60)
             await k.delete()
-
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
